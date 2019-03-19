@@ -1,0 +1,37 @@
+{
+    "name": "qingbing/pf-abstracts-operate-log",
+    "description": "抽象——数据库业务日志记录",
+    "type": "library",
+    "license": "MIT",
+    "keywords": [
+        "php",
+        "operate",
+        "log",
+        "operate-log",
+        "tools",
+        "tools-log"
+    ],
+    "homepage": "http://www.phpcorner.net",
+    "authors": [
+        {
+            "name": "qingbing",
+            "email": "780042175@qq.com"
+        }
+    ],
+    "require": {
+        "qingbing/php-helper": ">=1.0, <2.0",
+        "qingbing/php-database": ">=1.0, <2.0",
+        "qingbing/pf-abstracts-web-user": ">=1.0, <2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Abstracts\\": "src/abstracts"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "TestCore\\": "test/core",
+            "Test\\": "test/src"
+        }
+    }
+}
