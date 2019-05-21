@@ -53,7 +53,7 @@ abstract class OperateLog extends SingleTon
             'ip' => $this->request->getUserHostAddress(),
             'db_time' => new Expression('NOW()'),
         ];
-        if ($this->user instanceof WebUser && !$this->user->getIsGuest()) {
+        if ($this->user instanceof WebUser && $this->user->getUid() && $this->user->getUsername()) {
             $data['uid'] = $this->user->getUid();
             $data['username'] = $this->user->getUsername();
         }
