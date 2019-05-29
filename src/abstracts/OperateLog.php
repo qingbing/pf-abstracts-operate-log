@@ -39,10 +39,12 @@ abstract class OperateLog extends SingleTon
      * @param string $message
      * @param string $keyword
      * @param mixed $data
+     * @param string|null $uid
+     * @param string|null $username
      * @return int
      * @throws \Exception
      */
-    public function operate($isSuccess, $type, $message, $keyword = '', $data = '')
+    public function operate($isSuccess, $type, $message, $keyword = '', $data = '', $uid = null, $username = null)
     {
         $data = [
             'type' => $type,
@@ -53,7 +55,10 @@ abstract class OperateLog extends SingleTon
             'ip' => $this->request->getUserHostAddress(),
             'db_time' => new Expression('NOW()'),
         ];
-        if ($this->user instanceof WebUser && $this->user->getUid() && $this->user->getUsername()) {
+        if (null !== $uid) {
+            $data['uid'] = $uid;
+            $data['username'] = $username;
+        } else if ($this->user instanceof WebUser && $this->user->getUid() && $this->user->getUsername()) {
             $data['uid'] = $this->user->getUid();
             $data['username'] = $this->user->getUsername();
         }
