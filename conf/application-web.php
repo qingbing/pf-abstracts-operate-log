@@ -32,6 +32,6 @@ return [
                 'c-file' => 'file-cache',
             ],
         ],
-        require('component-errorHandler.php')
+        []
     ),
 ];

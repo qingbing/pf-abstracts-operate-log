@@ -14,7 +14,7 @@ use Abstracts\OperateLog;
 class TestOperateLog extends OperateLog
 {
     /* @var string 数据表名，todo 需要在子类中自行指定 */
-    protected $tableName = 'log_operate_template';
+    protected $tableName = 'test_log_operate';
 
     public function init()
     {

@@ -9,8 +9,6 @@
 namespace Abstracts;
 
 
-use DbSupports\Expression;
-
 abstract class OperateLog extends SingleTon
 {
     /* @var WebUser 登录的用户组件， todo 建议在子类的init()方法中赋值指定 */
@@ -53,7 +51,6 @@ abstract class OperateLog extends SingleTon
             'keyword' => $keyword,
             'data' => json_encode($data),
             'ip' => $this->request->getUserHostAddress(),
-            'db_time' => new Expression('NOW()'),
         ];
         if (null !== $uid) {
             $data['uid'] = $uid;
