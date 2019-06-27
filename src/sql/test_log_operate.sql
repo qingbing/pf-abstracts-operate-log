@@ -5,9 +5,9 @@ CREATE TABLE IF NOT EXISTS `test_log_operate` (
  `keyword` VARCHAR (100) NOT NULL DEFAULT '' COMMENT '关键字，用于后期筛选',
  `message` VARCHAR (255) NOT NULL DEFAULT '' COMMENT '操作消息',
  `data` text COMMENT '操作的具体内容',
- `is_success` tinyint(1) NOT NULL DEFAULT '1' COMMENT '是否执行成功',
+ `is_success` tinyint(1) UNSIGNED NOT NULL DEFAULT '1' COMMENT '是否执行成功',
  `op_ip` varchar(15) NOT NULL DEFAULT '' COMMENT '登录IP',
- `op_uid` int(11) NOT NULL DEFAULT '0' COMMENT '用户ID',
+ `op_uid` BIGINT(20) UNSIGNED NOT NULL DEFAULT '0' COMMENT '用户ID',
  `op_username` varchar(50) NOT NULL DEFAULT '' COMMENT '用户名',
  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
  PRIMARY KEY (`id`),
@@ -16,3 +16,4 @@ CREATE TABLE IF NOT EXISTS `test_log_operate` (
  KEY `idx_create_at`(`created_at`),
  KEY `idx_keyword`(`keyword`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='test 操作日志表';
+
