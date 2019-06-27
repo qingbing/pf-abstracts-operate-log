@@ -50,14 +50,14 @@ abstract class OperateLog extends SingleTon
             'message' => $message,
             'keyword' => $keyword,
             'data' => json_encode($data),
-            'ip' => $this->request->getUserHostAddress(),
+            'op_ip' => $this->request->getUserHostAddress(),
         ];
         if (null !== $uid) {
-            $data['uid'] = $uid;
-            $data['username'] = $username;
+            $data['op_uid'] = $uid;
+            $data['op_username'] = $username;
         } else if ($this->user instanceof WebUser && $this->user->getUid() && $this->user->getUsername()) {
-            $data['uid'] = $this->user->getUid();
-            $data['username'] = $this->user->getUsername();
+            $data['op_uid'] = $this->user->getUid();
+            $data['op_username'] = $this->user->getUsername();
         }
         return $this->db->insert($this->tableName, $data);
     }

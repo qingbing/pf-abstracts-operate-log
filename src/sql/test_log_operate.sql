@@ -6,13 +6,13 @@ CREATE TABLE IF NOT EXISTS `test_log_operate` (
  `message` VARCHAR (255) NOT NULL DEFAULT '' COMMENT '操作消息',
  `data` text COMMENT '操作的具体内容',
  `is_success` tinyint(1) NOT NULL DEFAULT '1' COMMENT '是否执行成功',
- `uid` int(11) NOT NULL DEFAULT '0' COMMENT '用户ID',
- `username` varchar(50) NOT NULL DEFAULT '' COMMENT '用户名',
- `ip` varchar(15) NOT NULL DEFAULT '' COMMENT '登录IP',
+ `op_ip` varchar(15) NOT NULL DEFAULT '' COMMENT '登录IP',
+ `op_uid` int(11) NOT NULL DEFAULT '0' COMMENT '用户ID',
+ `op_username` varchar(50) NOT NULL DEFAULT '' COMMENT '用户名',
  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
- PRIMARY KEY `pk_id`(`id`),
+ PRIMARY KEY (`id`),
  KEY `idx_type`(`type`),
- KEY `idx_uid`(`uid`),
+ KEY `idx_uid`(`op_uid`),
  KEY `idx_create_at`(`created_at`),
  KEY `idx_keyword`(`keyword`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='test 操作日志表';
